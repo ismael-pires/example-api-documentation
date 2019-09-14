@@ -1,0 +1,33 @@
+#  Estrutura da requisição para consultar todos os membros
+#  Método [GET]
+
+get:
+  tags:
+    - Membros
+  summary: Consultar todos o membros
+  description: Retorna lista de todos os membros cadastrados.
+  operationId: list_members
+
+  parameters:
+    - 
+      name: authorization
+      in: header
+      schema:
+        type: string
+      required: true
+      description: Token de autorização
+      example: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...
+            
+  responses:
+    '200':
+      $ref: '../index.yaml#/components/responses/200'
+    '400':
+      $ref: '../index.yaml#/components/responses/400'
+    '401':
+      $ref: '../index.yaml#/components/responses/401'
+    '404':
+      $ref: '../index.yaml#/components/responses/404'
+    '406':
+      $ref: '../index.yaml#/components/responses/406'
+    '500':
+      $ref: '../index.yaml#/components/responses/500'

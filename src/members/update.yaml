@@ -1,0 +1,49 @@
+
+#  Estrutura da requisição para atualizar um membro.
+#  Método [PUT]
+
+put:
+  tags:
+    - Membros
+  summary: Atualizar membro
+  description: Atualiza um membro no sistema
+  operationId: update_member
+
+  parameters:
+  - 
+    name: authorization
+    in: header
+    schema:
+      type: string
+    required: true
+    description: Token de autorização
+    example: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...
+
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object            
+          properties:
+            email:
+              type: string
+              example: ironman@avengers.com.br
+              description: O e-mail de contato
+            power:
+              type: string
+              example: Filantropo
+              description: Super armadura de nanotecnologia
+
+  responses:
+    '200':
+      $ref: '../index.yaml#/components/responses/200'
+    '400':
+      $ref: '../index.yaml#/components/responses/400'
+    '401':
+      $ref: '../index.yaml#/components/responses/401'
+    '404':
+      $ref: '../index.yaml#/components/responses/404'
+    '406':
+      $ref: '../index.yaml#/components/responses/406'
+    '500':
+      $ref: '../index.yaml#/components/responses/500'

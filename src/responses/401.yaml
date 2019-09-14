@@ -1,0 +1,14 @@
+
+# Estrutura de resposta da API para o código: 401 Unauthorized
+# Essa resposta significa que o cliente deve se autenticar para obter a resposta solicitada.
+
+type: object
+properties:
+  status:
+    type: integer
+    example: 401
+    description: Código HTTP
+  message:
+    type: string
+    example: Requisição não autorizada
+    description: Descrição da mensagem de erro

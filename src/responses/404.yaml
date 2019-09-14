@@ -1,0 +1,14 @@
+
+# Estrutura de resposta da API para o código: 404 Not Found
+# Essa resposta significa que o servidor não pode encontrar o recurso solicitado
+
+type: object
+properties:
+  status:
+    type: integer
+    example: 404
+    description: Código HTTP
+  message:
+    type: string
+    example: Recurso não encontrado
+    description: Descrição da mensagem de erro

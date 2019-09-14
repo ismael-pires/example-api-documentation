@@ -1,0 +1,17 @@
+
+# Estrutura de resposta da API para o código: 406 Not Acceptable
+# Essa resposta significa que após o servidor realizar a negociação de conteúdo orientada pelo servidor,
+# não encontra nenhum conteúdo seguindo os critérios fornecidos pelo agente do usuário
+
+# Normalmente o erro de conteúdo é devido ao cabeçalho (headers)
+
+type: object
+properties:
+  status:
+    type: integer
+    example: 406
+    description: Código HTTP
+  message:
+    type: string
+    example: Conteúdo de mídia não aceito ou o conteúdo não segue os critérios definidos pela origem
+    description: Descrição da mensagem de erro

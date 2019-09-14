@@ -1,0 +1,63 @@
+
+#  Estrutura da requisição para cadastrar um novo membro.
+#  Método [POST]
+
+post:
+  tags:
+    - Membros
+  summary: Cadastrar membro
+  description: Cadastra um novo membro no sistema
+  operationId: add_new_member
+
+  parameters:
+  - 
+    name: authorization
+    in: header
+    schema:
+      type: string
+    required: true
+    description: Token de autorização
+    example: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...
+
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - name
+            - phone
+            - email
+            - power
+            
+          properties:
+            name:
+              type: string
+              example: Tony Stark
+              description: Nome do Membro
+            phone:
+              type: string
+              example: (48) 99934-1028
+              description: O telefone de contato
+            email:
+              type: string
+              example: iron_man@avengers.com.br
+              description: O e-mail de contato
+            power:
+              type: string
+              example: Armadura e tecnologia
+              description: Super armadura de nanotecnologia
+
+  responses:
+    '200':
+      $ref: '../index.yaml#/components/responses/200'
+    '400':
+      $ref: '../index.yaml#/components/responses/400'
+    '401':
+      $ref: '../index.yaml#/components/responses/401'
+    '404':
+      $ref: '../index.yaml#/components/responses/404'
+    '406':
+      $ref: '../index.yaml#/components/responses/406'
+    '500':
+      $ref: '../index.yaml#/components/responses/500'

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Documentação de Exemplo</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+
+        <!-- Versão 2.0 local-->
+<!--        <script src="./node_modules/redoc/bundles/redoc.standalone.js"> </script>-->
+        <!-- Versão 2.0 stable-->
+         <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"> </script>
+    </head>
+    <body>
+        <img src="logo.png" width="200">
+        <redoc id="redoc-container"></redoc>
+    </body>
+
+    <script>
+        Redoc.init(
+            './src/index.yaml',
+            { scrollYOffset: 50, hideDownloadButton: true },
+            document.getElementById('redoc-container'))
+    </script>
+</html>

@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  description: Documentação de exemplo de uma API, utilizando OpenAPI Specification.
+  version: 1.0.0
+  title: Documentação de Exemplo
+  contact:
+    name: Steve Rogers
+    email: captain_america@avengers.com.br
+servers:
+  - url: http://avengers.com.br
+    description: Endereço da base para testes
+tags:
+  - name: Membros
+    description: Rotas relacionadas ao gerenciamento de membros
+    
+paths:
+  /member:
+    $ref: './members/add.yaml'
+  /members:
+    $ref: './members/list.yaml'
+  /member/{code}:
+    put:
+      tags:
+        - Membros
+      summary: Atualizar membros
+      description: Atualiza um membro no sistema
+      operationId: post_update_member
+
+      parameters:
+        - 
+          name: authorization
+          in: header
+          schema:
+            type: string
+          required: true
+          description: Token de autorização
+          example: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object            
+              properties:
+                email:
+                  type: string
+                  example: ironman@avengers.com.br
+                  description: O e-mail de contato
+                power:
+                  type: string
+                  example: Filantropo
+                  description: Super armadura de nanotecnologia
+
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '404':
+          $ref: '#/components/responses/404'
+        '406':
+          $ref: '#/components/responses/406'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      tags:
+        - Membros
+      summary: Exluir membro
+      description: Exclui um membro do sistema
+      operationId: delete_member
+
+      parameters:
+        - 
+          name: authorization
+          in: header
+          schema:
+            type: string
+          required: true
+          description: Token de autorização
+          example: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...
+                
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '404':
+          $ref: '#/components/responses/404'
+        '406':
+          $ref: '#/components/responses/406'
+        '500':
+          $ref: '#/components/responses/500'
+
+components:
+  responses:
+    200:
+      description: Requisição realizada com sucesso
+      content:
+        application/json:
+          schema:
+            $ref: ./responses/200.yaml
+    400:
+      description: Requisição inválida
+      content:
+        application/json:
+          schema:
+            $ref: ./responses/400.yaml 
+    401:
+      description: Requisição não autorizada
+      content:
+        application/json:
+          schema:
+            $ref: ./responses/401.yaml
+    404:
+      description: Recurso solicitado não foi encontrado
+      content:
+        application/json:
+          schema:
+            $ref: ./responses/404.yaml
+    406:
+      description: Requisição inválida, devido ao conteúdo não respeitar os critérios definidos
+      content:
+        application/json:
+          schema:
+            $ref: ./responses/406.yaml
+    500:
+      description: Erro interno no servidor
+      content:
+        application/json:
+          schema:
+            $ref: ./responses/500.yaml

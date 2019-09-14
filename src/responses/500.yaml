@@ -1,0 +1,14 @@
+
+# Estrutura de resposta da API para o código: 500 Internal Server Error
+# O servidor encontrou um erro de implementação ou dados infucientes para prosseguir.
+
+type: object
+properties:
+  status:
+    type: integer
+    example: 500
+    description: Código HTTP
+  message:
+    type: string
+    example: Ocorreu um erro ao processar esta requisição
+    description: Descrição da mensagem de erro
